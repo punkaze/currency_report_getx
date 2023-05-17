@@ -25,8 +25,8 @@ class CurrentCurrencyPriceController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    retrieveCurrentPrice();
     streamCurrentPrice.listen((event) async {
-      print('listen on event current price');
       await retrieveCurrentPrice();
     });
   }
@@ -54,7 +54,8 @@ class CurrentCurrencyPriceController extends GetxController {
       for (final currency in currencyDetail.detail) {
         if (currency.code.toLowerCase() == currencyCode.toLowerCase()) {
           rateFloat.value = (1 / currency.rateFloat) * currencyAmount;
-          rateFormat.value = NumberFormat.simpleCurrency().format(rateFloat);
+          rateFormat.value =
+              NumberFormat.simpleCurrency().format(rateFloat.value);
           break;
         }
       }

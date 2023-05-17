@@ -53,28 +53,39 @@ class CurrencyExchangeForm extends StatelessWidget {
                 ),
               ),
               10.horizontalSpace,
-            ],
-          ),
-          Row(
-            children: [
-              DropdownButton<String>(
-                onChanged: (value) {
-                  if (value != null) {
-                    controller.currentSelectedCurrencyCode.value = value;
-                  }
-                },
-                items: List.generate(
-                  3,
-                  (index) => DropdownMenuItem(
-                    child: Text(
-                      controller.currencyCodeList[index],
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: AppColors.white,
+              Expanded(
+                child: Obx(
+                  () {
+                    List<DropdownMenuItem<String>> dropdownItems =
+                        List.generate(
+                      controller.currencyCodeList.length,
+                      (index) => DropdownMenuItem(
+                        value: controller.currencyCodeList[index],
+                        child: Text(
+                          controller.currencyCodeList[index],
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                            color: AppColors.black,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+
+                    return DropdownButton<String>(
+                      onChanged: (value) {
+                        if (value != null) {
+                          controller.currentSelectedCurrencyCode.value = value;
+                        }
+                      },
+                      value: controller.currentSelectedCurrencyCode.value,
+                      isExpanded: true,
+                      style: const TextStyle(
+                        color: AppColors.black,
+                      ),
+                      items: dropdownItems,
+                    );
+                  },
                 ),
               ),
             ],
@@ -95,7 +106,7 @@ class CurrencyExchangeForm extends StatelessWidget {
                   child: Obx(
                     () {
                       return Text(
-                        '${controller.rateFloat.toStringAsFixed(8)} BTC',
+                        '${controller.rateFloat.value.toStringAsFixed(8)} BTC',
                         style: AppStyles.normalTextStyle.copyWith(fontSize: 16),
                       );
                     },

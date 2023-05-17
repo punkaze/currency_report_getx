@@ -30,8 +30,11 @@ class CurrencyDetailCard extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () {
-        Get.toNamed(Paths.CURRENCY_REPORT, arguments: {'code': detail.code});
+      onTap: () async {
+        await Get.toNamed(
+          '${Paths.CURRENT_PRICE}${Paths.CURRENCY_REPORT}',
+          arguments: {'code': detail.code},
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -42,7 +45,7 @@ class CurrencyDetailCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: DecoratedBox(
             decoration: const BoxDecoration(
-              color: AppColors.deepBLue,
+              color: AppColors.grey,
             ),
             child: Row(
               children: [
