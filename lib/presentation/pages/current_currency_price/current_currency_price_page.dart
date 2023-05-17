@@ -1,5 +1,6 @@
 import 'package:clean_structure_project/domain/model/collection_schema/currency_report_collection.dart';
 import 'package:clean_structure_project/presentation/pages/current_currency_price/components/currency_detail_card.dart';
+import 'package:clean_structure_project/presentation/pages/current_currency_price/components/currency_exchange_form.dart';
 import 'package:clean_structure_project/presentation/pages/current_currency_price/controller/current_currency_price_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +44,7 @@ class CurrentCurrencyPricePage extends StatelessWidget {
               },
             ),
             25.verticalSpace,
-            // const CurrencyExchangeForm(),
+            const CurrencyExchangeForm(),
           ],
         ),
       ),

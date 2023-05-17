@@ -1,3 +1,4 @@
+import 'package:clean_structure_project/common/style/app_colors.dart';
 import 'package:clean_structure_project/common/style/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -5,10 +6,10 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData lightAppTheme = ThemeData(
-    appBarTheme: const AppBarTheme(color: Color(0xFFF4511E), centerTitle: true),
+    appBarTheme: const AppBarTheme(color: AppColors.blue, centerTitle: true),
     dialogTheme: const DialogTheme(
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Color(0xFFF4511E), width: 1.0),
+        side: BorderSide(color: AppColors.blue, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
     ),
@@ -20,11 +21,11 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFF4511E),
+        backgroundColor: AppColors.blue,
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Color(0xFFF4511E),
+      backgroundColor: AppColors.blue,
     ),
     fontFamily: AppStyles.appFont,
     textButtonTheme: TextButtonThemeData(
@@ -40,10 +41,10 @@ class AppTheme {
         borderRadius: BorderRadius.all(Radius.circular(8)),
         side: BorderSide(color: Colors.grey, width: 2),
       ),
-      dialHandColor: const Color(0xFFF4511E),
+      dialHandColor: AppColors.blue,
       hourMinuteColor: MaterialStateColor.resolveWith(
         (Set<MaterialState> states) => states.contains(MaterialState.selected)
-            ? const Color(0xFFF4511E)
+            ? AppColors.blue
             : Colors.black12,
       ),
       hourMinuteTextColor: MaterialStateColor.resolveWith(
@@ -58,7 +59,7 @@ class AppTheme {
       dayPeriodColor: Colors.transparent,
       dayPeriodTextColor: MaterialStateColor.resolveWith(
         (Set<MaterialState> states) => states.contains(MaterialState.selected)
-            ? const Color(0xFFF4511E)
+            ? AppColors.blue
             : Colors.black12,
       ),
       hourMinuteShape: RoundedRectangleBorder(

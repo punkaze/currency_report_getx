@@ -1,3 +1,4 @@
+import 'package:clean_structure_project/presentation/pages/currency_report/controller/currency_report_controller.dart';
 import 'package:clean_structure_project/presentation/pages/currency_report/currency_report_page.dart';
 import 'package:clean_structure_project/presentation/pages/current_currency_price/controller/current_currency_price_controller.dart';
 import 'package:clean_structure_project/presentation/pages/current_currency_price/current_currency_price_page.dart';
@@ -24,7 +25,9 @@ class AppPages {
         GetPage(
           name: Paths.CURRENCY_REPORT,
           page: () => const CurrencyReportPage(),
-          // binding: HomeBinding(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<CurrencyReportController>(CurrencyReportController.new);
+          }),
         ),
       ],
     ),
