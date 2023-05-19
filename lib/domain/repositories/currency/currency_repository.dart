@@ -21,11 +21,9 @@ class CurrencyRepository {
   Future<CurrencyReportCollection> getCurrentPrice() async {
     try {
       final response = await api.getCurrencyApi();
-      final jsonResponse =
-          jsonDecode(response.data.toString()) as Map<String, dynamic>;
 
       final currencyResponse = CurrencyResponseModel.fromJson(
-        jsonResponse,
+        response,
       );
 
       final currencyDetailList = <CurrencyDetailModel>[
@@ -68,10 +66,7 @@ class CurrencyRepository {
 
   Future<List<CurrencyReportCollection>> getCurrencyReport() async {
     try {
-      final currencyDetailCollection =
-          database.instance.collection<CurrencyReportCollection>();
-
-      return await currencyDetailCollection
+      return await database.currencyReportCollection
           .filter()
           .detailIsNotEmpty()
           .sortByUpdatedAtDesc()

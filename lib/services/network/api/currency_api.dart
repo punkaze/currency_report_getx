@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:clean_structure_project/services/network/api_client.dart';
 import 'package:clean_structure_project/services/network/api_constant/api_endpoint.dart';
-import 'package:dio/dio.dart';
 
 class CurrencyApi {
   CurrencyApi({
@@ -9,10 +10,12 @@ class CurrencyApi {
 
   final ApiClient apiClient;
 
-  Future<Response<dynamic>> getCurrencyApi() async {
+  Future<Map<String, dynamic>> getCurrencyApi() async {
     try {
-      final response = apiClient.get<dynamic>(ApiEndpoint.currentPrice);
-      return response;
+      final response = await apiClient.get<dynamic>(ApiEndpoint.currentPrice);
+      final jsonResponse =
+          jsonDecode(response.data.toString()) as Map<String, dynamic>;
+      return jsonResponse;
     } catch (e) {
       rethrow;
     }

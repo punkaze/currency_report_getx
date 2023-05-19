@@ -73,11 +73,7 @@ class CurrencyExchangeForm extends StatelessWidget {
                     );
 
                     return DropdownButton<String>(
-                      onChanged: (value) {
-                        if (value != null) {
-                          controller.currentSelectedCurrencyCode.value = value;
-                        }
-                      },
+                      onChanged: controller.onDropdownChanged,
                       value: controller.currentSelectedCurrencyCode.value,
                       isExpanded: true,
                       style: const TextStyle(

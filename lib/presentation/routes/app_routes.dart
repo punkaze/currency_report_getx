@@ -8,3 +8,9 @@ class Paths {
   static const String CURRENT_PRICE = '/current_price';
   static const String CURRENCY_REPORT = '/currency_report';
 }
+
+class Routes {
+  Routes._();
+  static const String CURRENT_PRICE = '/current_price';
+  static const String CURRENCY_REPORT = '/current_price/currency_report';
+}

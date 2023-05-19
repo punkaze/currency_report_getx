@@ -19,7 +19,8 @@ class AppPages {
       middlewares: [CoreMiddleware()],
       binding: BindingsBuilder(() {
         Get.lazyPut<CurrentCurrencyPriceController>(
-            CurrentCurrencyPriceController.new);
+          CurrentCurrencyPriceController.new,
+        );
       }),
       children: [
         GetPage(

@@ -61,4 +61,10 @@ class CurrentCurrencyPriceController extends GetxController {
       }
     }
   }
+
+  void onDropdownChanged(String? value) {
+    if (value != null) {
+      currentSelectedCurrencyCode.value = value;
+    }
+  }
 }

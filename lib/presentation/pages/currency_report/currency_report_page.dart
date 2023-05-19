@@ -33,7 +33,7 @@ class CurrencyReportPage extends StatelessWidget {
               child: SizedBox(
                 height: .7.sw,
                 child: Obx(() {
-                   final chartData = <CurrencyData>[];
+                  final chartData = <CurrencyData>[];
                   for (final element
                       in currencyReportController.currencyReport) {
                     final currencyData =

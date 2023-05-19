@@ -11,6 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      // TODO: set design size from Figma
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,

@@ -32,7 +32,7 @@ class CurrencyDetailCard extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         await Get.toNamed(
-          '${Paths.CURRENT_PRICE}${Paths.CURRENCY_REPORT}',
+          Routes.CURRENCY_REPORT,
           arguments: {'code': detail.code},
         );
       },
