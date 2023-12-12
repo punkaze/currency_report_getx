@@ -1,4 +1,5 @@
-import 'dart:convert';
+import 'package:dio/dio.dart';
+import 'package:isar/isar.dart';
 
 import 'package:clean_structure_project/domain/model/collection_schema/currency_report_collection.dart';
 import 'package:clean_structure_project/domain/model/currency/currency_detail_model.dart';
@@ -6,8 +7,6 @@ import 'package:clean_structure_project/domain/model/currency/currency_response_
 import 'package:clean_structure_project/services/database/database.dart';
 import 'package:clean_structure_project/services/network/api/currency_api.dart';
 import 'package:clean_structure_project/services/network/api_exception.dart';
-import 'package:dio/dio.dart';
-import 'package:isar/isar.dart';
 
 class CurrencyRepository {
   CurrencyRepository({

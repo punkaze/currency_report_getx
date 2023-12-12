@@ -1,104 +1,54 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
+
 analyzer:
   errors:
-    # Otherwise cause the import of all_lint_rules to warn because of some rules conflicts.
-    # The conflicts are fixed in this file instead, so we can safely ignore the warning.
-    included_file_warning: ignore
-    # treat missing required parameters as a warning (not a hint)
-    missing_required_param: error
-    # treat missing returns as a warning (not a hint)
-    missing_return: error
-    prefer_const_constructors: warning
-    prefer_final_fields: warning
-    # allow having TODOs in the code
-    todo: ignore
-    sdk_version_async_exported_from_core: ignore
-    # Custom errors to be ignored
-    implicit_dynamic_type: ignore
-    #invalid_assignment: ignore
-    implicit_dynamic_map_literal: ignore
-    always_put_control_body_on_new_line: ignore
-    implicit_dynamic_parameter: ignore
-    dead_code: info
-    invalid_annotation_target: ignore
+    # Uncomment the line below to disable the `prefer_const_constructors_in_immutables` lint
+    prefer_const_constructors: error
+    prefer_const_declarations: error
+    prefer_const_literals_to_create_immutables: warning
+    prefer_const_constructors_in_immutables: warning
+    avoid_print: error
+    sized_box_for_whitespace: warning
+    sized_box_shrink_expand: warning
+    unnecessary_import: error
+    use_key_in_widget_constructors: warning
+    avoid_unnecessary_containers: warning
+    unnecessary_this: warning
+    unused_import: error
+    # unused_element: warning
+
   exclude:
-    - "**/*.g.dart"
+    - integration_test/**
     - "**/*.freezed.dart"
+    - "**/*.g.dart"
 
 linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at
+  # https://dart-lang.github.io/linter/lints/index.html.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
   rules:
-    - always_declare_return_types
-    - always_use_package_imports
-    - close_sinks
-    - one_member_abstracts
-    - prefer_final_in_for_each
-    - annotate_overrides
-    # - always_specify_types
-    - avoid_empty_else
-    - avoid_function_literals_in_foreach_calls
-    - avoid_init_to_null
-    - avoid_null_checks_in_equality_operators
-    - avoid_relative_lib_imports
-    - avoid_renaming_method_parameters
-    - avoid_return_types_on_setters
-    - avoid_returning_null
-    - avoid_types_as_parameter_names
-    - avoid_unused_constructor_parameters
-    - await_only_futures
-    - camel_case_types
-    - cancel_subscriptions
-    - cascade_invocations
-    - comment_references
-    - constant_identifier_names
-    - control_flow_in_finally
-    - directives_ordering
-    - empty_catches
-    - empty_constructor_bodies
-    - empty_statements
-    - hash_and_equals
-    - implementation_imports
-    - iterable_contains_unrelated_type
-    - library_names
-    - library_prefixes
-    - list_remove_unrelated_type
-    - lines_longer_than_80_chars
-    - no_adjacent_strings_in_list
-    - no_duplicate_case_values
-    - non_constant_identifier_names
-    - null_closures
-    - only_throw_errors
-    - overridden_fields
-    - package_api_docs
-    - package_names
-    - package_prefixed_library_names
-    - prefer_adjacent_string_concatenation
-    - prefer_collection_literals
-    - prefer_conditional_assignment
-    - prefer_const_constructors
-    - prefer_const_declarations
-    - prefer_contains
-    - prefer_final_fields
-    - prefer_initializing_formals
-    - prefer_interpolation_to_compose_strings
-    - prefer_is_empty
-    - prefer_is_not_empty
-    - prefer_typing_uninitialized_variables
-    - prefer_single_quotes
-    - recursive_getters
-    - slash_for_doc_comments
-    - sort_constructors_first
-    - test_types_in_equals
-    - throw_in_finally
-    - type_init_formals
-    - unawaited_futures
-    - unnecessary_brace_in_string_interps
-    - unnecessary_const
-    - unnecessary_getters_setters
-    - unnecessary_lambdas
-    - unnecessary_new
-    - unnecessary_null_aware_assignments
-    - unnecessary_statements
-    - unnecessary_this
-    - unrelated_type_equality_checks
-    - use_rethrow_when_possible
-    - valid_regexps
+    sized_box_shrink_expand: true
+    avoid_unnecessary_containers: true
+    sized_box_for_whitespace: true
+    avoid_print: true # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options

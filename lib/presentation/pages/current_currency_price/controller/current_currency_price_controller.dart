@@ -36,7 +36,6 @@ class CurrentCurrencyPriceController extends GetxController {
       isLoading.value = true;
     }
     currencyDetailList.value = await _repository.getCurrentPrice();
-    print(currencyDetailList.value.detail.length);
     if (initial) {
       isLoading.value = false;
     }
