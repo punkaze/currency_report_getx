@@ -10,6 +10,7 @@ class CurrencyDetailModel with _$CurrencyDetailModel {
     required String symbol,
     required String rate,
     required String description,
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'rate_float') @Default(0) double rateFloat,
     // DateTime updatedAt,
   }) = _CurrencyDetailModel;
