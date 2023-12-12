@@ -55,7 +55,7 @@ class CurrencyRepository {
       // );
 
       return currencyReport;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = ApiException.fromDioError(e);
       throw errorMessage;
     } catch (e) {

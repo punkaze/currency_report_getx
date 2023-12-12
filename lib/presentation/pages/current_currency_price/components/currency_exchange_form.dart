@@ -1,10 +1,11 @@
-import 'package:clean_structure_project/common/style/app_colors.dart';
-import 'package:clean_structure_project/common/style/app_styles.dart';
-import 'package:clean_structure_project/presentation/pages/current_currency_price/controller/current_currency_price_controller.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import 'package:clean_structure_project/common/style/app_colors.dart';
+import 'package:clean_structure_project/common/style/app_styles.dart';
+import 'package:clean_structure_project/presentation/pages/current_currency_price/controller/current_currency_price_controller.dart';
 
 class CurrencyExchangeForm extends StatelessWidget {
   const CurrencyExchangeForm({super.key});
@@ -115,8 +116,13 @@ class CurrencyExchangeForm extends StatelessWidget {
             padding: const EdgeInsets.all(18),
             child: ElevatedButton(
               onPressed: () {
-                final double amount =
-                    double.parse(controller.amountTextController.text);
+                if (controller.amountTextController.text.isEmpty) {
+                  return;
+                }
+
+                final double amount = double.parse(
+                  controller.amountTextController.text,
+                );
                 final String currencyCode =
                     controller.currentSelectedCurrencyCode.value;
 
